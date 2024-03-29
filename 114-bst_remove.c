@@ -32,6 +32,8 @@ bst_t *find_successor(bst_t *node)
 
 bst_t *bst_remove(bst_t *root, int value)
 {
+	bst_t *successor;
+
 	if (root == NULL)
 		return (NULL);
 
@@ -56,7 +58,7 @@ bst_t *bst_remove(bst_t *root, int value)
 			return (temp);
 		}
 
-		bst_t *successor = find_successor(root);
+		successor = find_successor(root);
 
 		root->n = successor->n;
 		root->right = bst_remove(root->right, successor->n);
